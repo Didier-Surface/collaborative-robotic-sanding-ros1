@@ -30,7 +30,8 @@
         <child link="${prefix}shoulder_link" />
         <origin rpy="0 0 3.14159249728" xyz="0 0 0.180920744391" />
         <axis xyz="0 0 1" />
-        <limit effort="330.0" lower="-4.3" upper="3.28" velocity="3.14" />
+<!--        <limit effort="330.0" lower="-4.3" upper="3.28" velocity="3.14" />-->
+        <limit effort="330.0" lower="-4.3" upper="4.3" velocity="3.14" />
         <dynamics damping="0.0" friction="0.0" />
     </joint>
     <link name="${prefix}shoulder_link">
@@ -399,7 +400,10 @@
     <joint name="${prefix}robot_base_joint" type="fixed">
         <parent link="${prefix}robot_stand" />
         <child link="${prefix}base" />
-        <origin rpy="-1.570796 1.570796 0" xyz="-1.030659 -2.037406 0.7977 " />
+        <!-- <origin rpy="-1.570796 -1.570796 0.0" xyz="-1.030659 -2.037406 0.7977 " /> -->
+        <!--Z modified by bharath.a.rao@spiritaero.com @ 9/9/20 09:40AM to account for
+        robot base relocation on the rail. Original:above; modified: below-->
+        <origin rpy="-1.570796 -1.570796 0.0" xyz="-1.030659 -2.037406  0.153175 " />
         <axis xyz="1 0 0"/>
         <limit effort="1.0" lower="-0.1" upper="1.9" velocity=".01" />
     </joint>

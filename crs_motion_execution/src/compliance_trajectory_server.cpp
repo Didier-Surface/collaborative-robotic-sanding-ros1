@@ -234,7 +234,8 @@ protected:
       if (curr_state.step != curr_state.RETREAT && i + 1 == goal->trajectory.points.size())
       {
         curr_state.step = curr_state.RETREAT;
-        virtual_dist = 0;
+      // Testing 9-30 joe was 0.0 distance
+        virtual_dist = 0.03;
       }
 
       // Store the current true target position
