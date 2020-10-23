@@ -234,7 +234,8 @@ protected:
       if (curr_state.step != curr_state.RETREAT && i + 1 == goal->trajectory.points.size())
       {
         curr_state.step = curr_state.RETREAT;
-        virtual_dist = 0;
+      // Testing 9-30 joe was 0.0 distance
+        virtual_dist = 0.03;
       }
 
       // Store the current true target position
@@ -365,6 +366,8 @@ protected:
 
               // Override translational component of error with virtual error
               virtual_targ_pose_eig.translation() = curr_transform * virtual_error;
+              if (in_pose_tol && !in_ori_tol)
+                  virtual_targ_pose_eig.translation() = curr_transform * error.translation();
           }
           else if (curr_state.step == curr_state.CORRECTING_ORIENTATION ||  curr_state.step == curr_state.CONTACT_TO_SANDER_ON)
           {
